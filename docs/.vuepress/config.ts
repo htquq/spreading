@@ -13,18 +13,18 @@ export default defineUserConfig({
 
   theme: plumeTheme({
     /* 添加您的部署域名, 有助于 SEO, 生成 sitemap */
-    // hostname: 'https://your_site_url',
+    hostname: 'http://www.spreading.world', // 网站域名
 
     /* 文档仓库配置，用于 editLink */
-    // docsRepo: '',
-    // docsDir: 'docs',
-    // docsBranch: '',
+    // docsRepo: '', // 仓库地址
+    // docsDir: 'docs', // 文档目录
+    // docsBranch: '', // 分支
 
     /* 页内信息 */
-    // editLink: true,
-    // lastUpdated: true,
-    // contributors: true,
-    // changelog: false,
+    // editLink: true, // 启用编辑链接
+    // lastUpdated: true, // 最后更新时间
+    contributors: false, // 是否显示贡献者信息
+    // changelog: false, // 是否显示更新日志
 
     /**
      * 博客
@@ -87,7 +87,7 @@ export default defineUserConfig({
       // },
 
       /* 文章字数统计、阅读时间，设置为 false 则禁用 */
-      readingTime: false,
+      readingTime: true,
 
       /**
        * markdown enhance
