@@ -1,8 +1,5 @@
 ---
-title: 禾阅项目学校活动开展案例
-createTime: 2025/02/04 23:45:47
-permalink: /show/activity/
+title: 禾阅活动展示
+createTime: 2025/02/08 15:00:14
+permalink: /activity/
 ---
-
-- [黔西四中八年级读书分享](./黔西四中八年级读书分享.md)
-- [振华民中禾阅读书分享会](./振华民中禾阅读书分享会.md)

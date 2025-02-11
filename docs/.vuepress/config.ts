@@ -6,7 +6,8 @@ export default defineUserConfig({
   base: '/',
   lang: 'zh-CN',
   title: '“禾”我们一起“阅”世界',
-  description: '“禾”我们一起“阅”世界',
+  description: '禾阅组工作网站',
+  head: [['link', { rel: 'icon', href: '/禾小阅.svg' }]],
 
   bundler: viteBundler(),
   shouldPrefetch: false, // 站点较大，页面数量较多时，不建议启用
@@ -30,15 +31,14 @@ export default defineUserConfig({
      * 博客
      * @see https://theme-plume.vuejs.press/config/basic/#blog
      */
-    blog: false, // 禁用博客
-    // blog: {
-    //   postList: true, // 是否启用文章列表页
-    //   tags: true, // 是否启用标签页
-    //   archives: true, // 是否启用归档页
-    //   categories: true, // 是否启用分类页
-    //   postCover: 'right', // 文章封面位置
-    //   pagination: 15, // 每页显示文章数量
-    // },
+    blog: {
+      postList: true, // 是否启用文章列表页
+      tags: true, // 是否启用标签页
+      archives: true, // 是否启用归档页
+      categories: false, // 是否启用分类页
+      postCover: 'right', // 文章封面位置
+      pagination: 15, // 每页显示文章数量
+    },
 
     /* 博客文章页面链接前缀 */
     article: '/article/',
@@ -53,11 +53,11 @@ export default defineUserConfig({
      * 为 markdown 文件自动添加 frontmatter 配置
      * @see https://theme-plume.vuejs.press/config/basic/#autofrontmatter
      */
-    // autoFrontmatter: {
-    //   permalink: true,  // 是否生成永久链接
-    //   createTime: true, // 是否生成创建时间
-    //   title: true,      // 是否生成标题
-    // },
+    autoFrontmatter: {
+      permalink: true,  // 是否生成永久链接
+      createTime: true, // 是否生成创建时间
+      title: true,      // 是否生成标题
+    },
 
     plugins: {
       /**
@@ -73,7 +73,7 @@ export default defineUserConfig({
       // },
 
       /* 本地搜索, 默认启用 */
-      // search: true,
+      search: true,
 
       /**
        * Algolia DocSearch
@@ -104,15 +104,15 @@ export default defineUserConfig({
        *  markdown power
        * @see https://theme-plume.vuejs.press/config/plugin/markdown-power/
        */
-      // markdownPower: {
-      //   pdf: true,          // 启用 PDF 嵌入 @[pdf](/xxx.pdf)
+      markdownPower: {
+        pdf: true,          // 启用 PDF 嵌入 @[pdf](/xxx.pdf)
       //   caniuse: true,      // 启用 caniuse 语法  @[caniuse](feature_name)
       //   plot: true,         // 启用隐秘文本语法 !!xxxx!!
       //   bilibili: true,     // 启用嵌入 bilibili视频 语法 @[bilibili](bid)
       //   youtube: true,      // 启用嵌入 youtube视频 语法 @[youtube](video_id)
       //   artPlayer: true,    // 启用嵌入 artPlayer 本地视频 语法 @[artPlayer](url)
       //   audioReader: true,  // 启用嵌入音频朗读功能 语法 @[audioReader](url)
-      //   icons: true,        // 启用内置图标语法  :[icon-name]:
+        icons: true,        // 启用内置图标语法  :[icon-name]:
       //   codepen: true,      // 启用嵌入 codepen 语法 @[codepen](user/slash)
       //   replit: true,       // 启用嵌入 replit 语法 @[replit](user/repl-name)
       //   codeSandbox: true,  // 启用嵌入 codeSandbox 语法 @[codeSandbox](id)
@@ -124,8 +124,22 @@ export default defineUserConfig({
       //     rust: true,       // ::: rust-repl
       //     kotlin: true,     // ::: kotlin-repl
       //   },
-      //   imageSize: 'local', // 启用 自动填充 图片宽高属性，避免页面抖动
-      // },
+        imageSize: 'local', // 启用 自动填充 图片宽高属性，避免页面抖动
+      },
+
+      markdownImage: {
+        // 启用 figure
+        figure: true,
+
+        // 启用图片懒加载
+        // lazyload: true,
+
+        // 启用图片标记
+        // mark: true,
+
+        // 启用图片大小
+        // size: true,
+      },
 
       /**
        * 在 Markdown 文件中导入其他 markdown 文件内容。
@@ -151,23 +165,24 @@ export default defineUserConfig({
        * 评论 comments
        * @see https://theme-plume.vuejs.press/guide/features/comments/
        */
-      // comment: {
-      //   provider: '', // "Artalk" | "Giscus" | "Twikoo" | "Waline"
-      //   comment: true,
-      //   repo: '',
-      //   repoId: '',
-      //   category: '',
-      //   categoryId: '',
-      //   mapping: 'pathname',
-      //   reactionsEnabled: true,
-      //   inputPosition: 'top',
-      // },
+      comment: {
+        provider: 'Artalk', // "Artalk" | "Giscus" | "Twikoo" | "Waline" 
+        server: 'http://47.108.149.167:82/', // 评论服务地址
+        site: 'Default Site', // 站点名称
+        useBackendConf: true, // 是否使用后端配置
+        locale: 'zh-CN', // 语言
+        comment: true, // 是否启用评论
+      },
     },
 
     /**
      * 加密功能
      * @see https://theme-plume.vuejs.press/guide/features/encryption/
      */
-    encrypt: {},
+    encrypt: {
+      rules: {
+        'notes/doc/禾阅活动工作说明_内部版.md': 'hexiaoyue0423',
+      },
+    },
   }),
 })
