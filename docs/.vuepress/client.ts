@@ -1,4 +1,5 @@
 import { defineClientConfig } from 'vuepress/client'
+import Layout from './layouts/Layout.vue'
 // import RepoCard from 'vuepress-theme-plume/features/RepoCard.vue'
 // import NpmBadge from 'vuepress-theme-plume/features/NpmBadge.vue'
 // import NpmBadgeGroup from 'vuepress-theme-plume/features/NpmBadgeGroup.vue'
@@ -18,5 +19,8 @@ export default defineClientConfig({
 
     // your custom components
     // app.component('CustomComponent', CustomComponent)
+  },
+  layouts: {
+    Layout,
   },
 })

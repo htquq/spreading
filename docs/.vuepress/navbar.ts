@@ -13,6 +13,7 @@ export const navbar = defineNavbarConfig([
       {text: '活动', link: '/activity/', icon: 'material-symbols:interactive-space-outline'},
       { text: '播客', link: '/audio/', icon: 'mdi:audio-video' },
       {text: '月刊', link: '/periodical/', icon: 'mdi:newspaper-variant-outline'},
+      {text: '漂流本', link: '/drift/', icon: 'lucide:notebook-pen'},
     ]
   },
   { text: '展示', link: '/blog/', icon: 'material-symbols:grid-view-outline' },

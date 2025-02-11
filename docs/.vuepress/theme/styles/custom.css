@@ -111,3 +111,10 @@
   > .atk-grp-switcher {
   background: var(--at-color-bg-grey);
 }
+
+.search-wrapper{
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
