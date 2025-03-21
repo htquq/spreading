@@ -5,7 +5,7 @@ import { plumeTheme } from 'vuepress-theme-plume'
 export default defineUserConfig({
   base: '/',
   lang: 'zh-CN',
-  title: '“禾”我们一起“阅”世界',
+  title: '禾我们一起阅世界',
   description: '禾阅组工作网站',
   head: [['link', { rel: 'icon', href: '/禾小阅.svg' }]],
 

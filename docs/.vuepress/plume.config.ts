@@ -32,7 +32,7 @@ export default defineThemeConfig({
   /* 站点页脚 */
   footer: {
     message: 'Affiliated with: <a target="_blank" href="https://www.spring.org.cn/">上海春禾青少年发展中心</a>',
-    copyright: 'Copyright © 2025 禾阅计划',
+    copyright: 'Copyright © 2022 禾阅计划',
   },
 
   /**
