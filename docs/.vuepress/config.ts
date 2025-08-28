@@ -7,7 +7,19 @@ export default defineUserConfig({
   lang: 'zh-CN',
   title: '禾我们一起阅世界',
   description: '禾阅组工作网站',
-  head: [['link', { rel: 'icon', href: '/禾小阅.svg' }]],
+  head: [
+    ['link', { rel: 'icon', href: '/禾小阅.svg' }],
+    ["script", 
+      {}, 
+      `var _hmt = _hmt || [];
+      (function() {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?766f7a120bbe6cbe4a6a7d0b355fc376";
+        var s = document.getElementsByTagName("script")[0]; 
+        s.parentNode.insertBefore(hm, s);
+      })();`
+    ]
+  ],
 
   bundler: viteBundler(),
   shouldPrefetch: false, // 站点较大，页面数量较多时，不建议启用
@@ -99,13 +111,14 @@ export default defineUserConfig({
       //   mermaid: true,
       //   flowchart: true,
       // },
-
+      
       /**
        *  markdown power
        * @see https://theme-plume.vuejs.press/config/plugin/markdown-power/
        */
       markdownPower: {
-        pdf: true,          // 启用 PDF 嵌入 @[pdf](/xxx.pdf)
+        timeline: true,        // 启用时间线语法 ::: timeline
+        pdf: true,             // 启用 PDF 嵌入 @[pdf](/xxx.pdf)
       //   caniuse: true,      // 启用 caniuse 语法  @[caniuse](feature_name)
       //   plot: true,         // 启用隐秘文本语法 !!xxxx!!
       //   bilibili: true,     // 启用嵌入 bilibili视频 语法 @[bilibili](bid)
@@ -183,6 +196,10 @@ export default defineUserConfig({
       rules: {
         'notes/doc/禾阅活动工作说明_内部版.md': 'hexiaoyue0423',
       },
+    },
+    
+    markdown: {
+      flowchart: true, 
     },
   }),
 })

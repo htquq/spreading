@@ -2,23 +2,23 @@
 pageLayout: home
 externalLinkIcon: false
 config:
-  # -
-    # type: hero
+  -
+    type: hero
 
-    # full: true
-    # background: tint-plate
-    # tintPlate:  220
+    full: true
+    background: tint-plate
+    tintPlate:  220
     # filter: opacity(30%)
 
-    # hero:
-      # name: 禾阅计划
-      # tagline: 禾我们一起阅世界
-      # text: 用眼睛看、用心灵阅，拓宽眼界、拓展思维，乐于思考、喜于分享，成就更好的自己。
-      # actions:
-        # -
-          # theme: sponsor
-          # text: 展示内容 →
-          # link: /blog/
+    hero:
+      name: 禾阅计划
+      tagline: 禾我们一起阅世界
+      text: 用眼睛看、用心灵阅，拓宽眼界、拓展思维，乐于思考、喜于分享，成就更好的自己。
+      actions:
+        -
+          theme: sponsor
+          text: 现在就开始！ →
+          link: /blog/
   -
     type: doc-hero
 
