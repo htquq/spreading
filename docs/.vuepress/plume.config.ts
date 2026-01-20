@@ -1,6 +1,6 @@
 import { defineThemeConfig } from 'vuepress-theme-plume'
 import { navbar } from './navbar'
-import notes from './notes/index.js'
+import collections from './collections'
 import * as path from 'path'
 import { glob } from 'glob'
 
@@ -23,7 +23,7 @@ export default defineThemeConfig({
    * 文章版权信息
    * @see https://theme-plume.vuejs.press/guide/features/copyright/
    */
-  // copyright: true,
+  copyright: false, // 禁用版权信息
 
   prevPage: true,   // 是否启用上一页链接
   nextPage: true,   // 是否启用下一页链接
@@ -38,22 +38,24 @@ export default defineThemeConfig({
   /**
    * @see https://theme-plume.vuejs.press/config/basic/#profile
    */
-  profile: {
-    avatar: '禾小阅.svg',
-    name: '禾小阅',
-    description: '禾我们一起阅世界~',
-    // circle: true,
-    // location: '',
-    organization: '上海春禾青少年发展中心',
+  profile: { // 站点作者信息
+    avatar: '禾小阅.svg', // 站点头像
+    name: '禾小阅', // 站点名称
+    description: '禾我们一起阅世界~', // 站点描述
+    circle: true, // 头像圆形化
+    location: '', // 站点位置
+    organization: '上海春禾青少年发展中心', // 站点组织机构
   },
 
-  navbar, // 导航栏
-  notes, // 侧边栏导航 
-  sidebar: {
-    '/student-article/': getStudentArticleSidebar(),
-    '/article/': getArticleSidebar(),
-    '/hy-record/': getHYRecordSidebar(),
+  navbar, // 导航栏配置
+
+  sidebar: { // 侧边栏配置
+    '/student-article/': getStudentArticleSidebar(), // 自动生成学生投稿侧边栏
+    '/article/': getArticleSidebar(), // 自动生成学校风采侧边栏
+    '/hy-record/': getHYRecordSidebar(), // 自动生成禾阅记录侧边栏
   },
+
+  collections, // 集合配置
 
   /**
    * 公告板
@@ -76,7 +78,7 @@ export default defineThemeConfig({
 })
 
 
-// 自动生成侧边栏项的函数
+// 自动生成学生投稿侧边栏
 function getStudentArticleSidebar() {
   // 使用 glob.sync 方法获取 student-article 目录下的所有 .md 文件，排除 README.md 文件
   const files = glob.sync(
@@ -96,6 +98,8 @@ function getStudentArticleSidebar() {
     }))
   }]
 }
+
+// 自动生成学校风采侧边栏
 function getArticleSidebar() {
   const baseDir = path.resolve(__dirname, '../article')
   
@@ -106,7 +110,7 @@ function getArticleSidebar() {
   })
 
   // 按年份分组
-  const yearMap = files.reduce((acc, filePath) => {
+  const yearMap = files.reduce((acc: Record<string, Array<{ rawName: string, formattedName: string }>>, filePath) => {
     const [year, fileName] = filePath.split(path.sep)
     if (!acc[year]) acc[year] = []
     acc[year].push({
@@ -138,7 +142,8 @@ function formatArticleTitle(rawTitle: string) {
     .replace(/([a-zA-Z])(\d+)/g, '$1 $2') // 字母和数字间加空格
     .trim()
 }
-// 生成扁平化侧边栏
+
+// 自动生成禾阅记录侧边栏
 function getHYRecordSidebar() {
   const baseDir = path.resolve(__dirname, '../hy-record')
   
@@ -149,7 +154,7 @@ function getHYRecordSidebar() {
   })
 
   // 按学校分组
-  const schoolMap = schools.reduce((acc, filePath) => {
+  const schoolMap = schools.reduce((acc: Record<string, Array<{ fileName: string, fullPath: string }>>, filePath) => {
     const [school, fileName] = filePath.split(path.sep)
     if (!acc[school]) acc[school] = []
     acc[school].push({

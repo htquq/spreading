@@ -72,7 +72,7 @@ export default defineUserConfig({
       // },
 
       /* 本地搜索, 默认启用 */
-      search: true,
+      search: {},
 
       /**
        * Algolia DocSearch
@@ -86,7 +86,7 @@ export default defineUserConfig({
       // },
 
       /* 文章字数统计、阅读时间，设置为 false 则禁用 */
-      readingTime: true,
+      readingTime: {},
 
       /**
        * markdown enhance
@@ -181,11 +181,25 @@ export default defineUserConfig({
      */
     encrypt: {
       rules: {
-        'notes/doc/禾阅活动工作说明_内部版.md': 'hexiaoyue0423',
+        'doc/禾阅活动工作说明_内部版.md': 'hexiaoyue0423',
       },
     },
     
     markdown: {
+      // table: true, // 启用默认功能
+      table: {
+        // 表格默认对齐方式 'left' | 'center' | 'right'
+        align: 'center',
+        // 表格宽度是否为最大内容宽度
+        // 行内元素不再自动换行，超出容器宽度时表格显示滚动条
+        maxContent: false,
+        /**
+         * 复制为 html/markdown
+         * true 相当于 `all`，相当于同时启用 html 和 markdown
+         */
+        copy: true, // true | 'all' | 'html' | 'md'
+      },
+      collapse: true,
       flowchart: true, 
     },
   }),

@@ -16,8 +16,7 @@ export const navbar = defineNavbarConfig([
       {text: '漂流本', link: '/drift/', icon: 'lucide:notebook-pen'},
     ]
   },
-  { text: '展示', link: '/blog/', icon: 'material-symbols:grid-view-outline' },
-  { text: '导航', icon: 'ix:navigation',
+  { text: '展示', icon: 'material-symbols:grid-view-outline',
     items: [
       {text: '禾阅记录', link: '/hy-record/', icon: 'material-symbols:book-outline'},
       {text: '学校风采', link: '/article/', icon: 'fa-solid:school'},
